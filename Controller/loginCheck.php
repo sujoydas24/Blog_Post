@@ -1,12 +1,13 @@
 <?php
-session_start();
-$_SESSION['id'] = "skd";
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-    if($username == "lemon" && $password == "lemon"){
+    if ($username == "lemon" && $password == "lemon") {
         header("location:../View/blogAdmin.php");
-    }else{
+        session_start();
+        $_SESSION['id'] = "skd";
+    } else {
         echo "Wrong";
     }
 }
